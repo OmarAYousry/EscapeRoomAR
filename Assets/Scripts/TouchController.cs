@@ -5,6 +5,7 @@ using Vuforia;
 
 public class TouchController : MonoBehaviour
 {
+    private GameObject clue;
     void Update()
     {
         Vector2 touchPosition = new Vector2(-1f, -1f);
@@ -34,10 +35,33 @@ public class TouchController : MonoBehaviour
             if (Physics.Raycast(Camera.main.ScreenPointToRay(touchPosition), out RaycastHit hitInfo))
             {
                 Debug.Log(hitInfo.collider.gameObject.name);
+                if (hitInfo.collider.gameObject.CompareTag("Clue"))
+                {
+                    hitInfo.collider.transform.GetChild(0).gameObject.SetActive(true);
+                    clue = hitInfo.collider.gameObject;
+                }
+                else if (clue != null)
+                {
+                    clue.transform.GetChild(0).gameObject.SetActive(false);
+                    clue = null;
+                }
             }
             else
             {
+                if (clue != null)
+                {
+                    clue.transform.GetChild(0).gameObject.SetActive(false);
+                    clue = null;
+                }
                 Debug.Log("No targets hit :(");
+            }
+        }
+        else
+        {
+            if (clue != null)
+            {
+                clue.transform.GetChild(0).gameObject.SetActive(false);
+                clue = null;
             }
         }
     }

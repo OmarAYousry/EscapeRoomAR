@@ -9,13 +9,15 @@ public class WordCubeBehaviour : MonoBehaviour
     private Text targetText;
     private string targetString;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         if (targetText == null)
         {
             targetText = GetComponentInChildren<Text>();
         }
         targetString = targetText.text;
+
+        transform.GetChild(0).gameObject.SetActive(false);
     }
 
     // Update is called once per frame
