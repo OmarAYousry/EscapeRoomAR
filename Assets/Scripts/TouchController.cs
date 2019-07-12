@@ -11,7 +11,7 @@ public class TouchController : MonoBehaviour
         Vector2 touchPosition = new Vector2(-1f, -1f);
         float touchRadius = 0f;
         float touchRadiusVariance = 0f;
-        if (Application.platform == RuntimePlatform.WindowsEditor)
+        if (Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.OSXEditor)
         {
             if (Input.GetMouseButton(0))
             {
