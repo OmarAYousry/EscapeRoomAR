@@ -39,6 +39,10 @@ public class TouchController : MonoBehaviour
                 {
                     hitInfo.collider.transform.GetChild(0).gameObject.SetActive(true);
                     clue = hitInfo.collider.gameObject;
+                    if (clue.GetComponent<WordCubeBehaviour>() != null)
+                    {
+                        Observation.Instance.AddWordToList(clue.GetComponent<WordCubeBehaviour>().TargetString);
+                    }
                 }
                 else if (clue != null)
                 {

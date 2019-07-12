@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Observation : MonoBehaviour
+public class Observation : Singleton<Observation>
 {
     private List<string> wordList = new List<string>();
 
@@ -30,6 +30,9 @@ public class Observation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (wordList.Count > 0)
+        {
+            Debug.LogWarning(wordList[0]);
+        }
     }
 }

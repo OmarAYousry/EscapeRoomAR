@@ -7,7 +7,7 @@ public class WordCubeBehaviour : MonoBehaviour
 {
     [SerializeField]
     private Text targetText;
-    private string targetString;
+    public string TargetString { get; private set; }
     // Start is called before the first frame update
     void Awake()
     {
@@ -15,7 +15,7 @@ public class WordCubeBehaviour : MonoBehaviour
         {
             targetText = GetComponentInChildren<Text>();
         }
-        targetString = targetText.text;
+        TargetString = targetText.text;
 
         transform.GetChild(0).gameObject.SetActive(false);
     }
@@ -23,6 +23,6 @@ public class WordCubeBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(targetString);
+        Debug.Log(TargetString);
     }
 }
