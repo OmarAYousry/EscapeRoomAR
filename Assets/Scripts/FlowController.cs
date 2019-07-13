@@ -8,6 +8,11 @@ public class FlowController : Singleton<FlowController>
     [SerializeField]
     private Canvas mainCanvas;
     [SerializeField]
+    private GameObject numberScreen;
+    [SerializeField]
+    private char[] numberSolution = { '0', '7', '1', '8' };
+    private int numberSolutionIndex = 0;
+    [SerializeField]
     private GameObject numberClue;
     [SerializeField]
     private string puzzleSolution;
@@ -18,6 +23,12 @@ public class FlowController : Singleton<FlowController>
     void Start()
     {
         Invoke("UpdateClueText", 5f);
+        numberClue.GetComponentInChildren<Text>().text = "";
+        for (int i = 0; i < numberSolution.Length; i++)
+        {
+            numberClue.GetComponentInChildren<Text>().text += numberSolution[i];
+            numberClue.GetComponentInChildren<Text>().text += (i < numberSolution.Length - 1) ? " " : "";
+        }
     }
 
     public void UpdateClueText()
@@ -39,6 +50,18 @@ public class FlowController : Singleton<FlowController>
             Debug.Log($"User attempt wrong puzzle: {attempt} while solution is {puzzleSolution}");
             Debug.Log(attempt == puzzleSolution);
             return false;
+        }
+    }
+
+    public void AttemptNumberPad(char digit)
+    {
+        if (digit == numberSolution[numberSolutionIndex])
+        {
+            numberScreen.GetComponentInChildren<Text>().text += numberSolution[numberSolutionIndex++];
+        }
+        if (numberSolutionIndex == numberSolution.Length)
+        {
+            mainCanvas.GetComponentInChildren<Text>().text = "YOU WIN! GET OUT!";
         }
     }
 }

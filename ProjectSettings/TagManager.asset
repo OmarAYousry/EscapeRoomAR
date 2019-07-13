@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Clue
   - Puzzle
+  - NumKey
   layers:
   - Default
   - TransparentFX

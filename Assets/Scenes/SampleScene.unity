@@ -427,7 +427,7 @@ Mesh:
     vertexCount: 4
     localAABB:
       m_Center: {x: 0, y: 0, z: 0}
-      m_Extent: {x: 0.49861187, y: 0, z: 0.5}
+      m_Extent: {x: 0.5, y: 0, z: 0.350746}
   m_Shapes:
     vertices: []
     shapes: []
@@ -503,7 +503,7 @@ Mesh:
       format: 0
       dimension: 0
     m_DataSize: 128
-    _typelessdata: 0e4affbe00000000000000bf000000000000803f0000000000000000000000000e4affbe000000000000003f000000000000803f00000000000000000000803f0e4aff3e00000000000000bf000000000000803f000000000000803f000000000e4aff3e000000000000003f000000000000803f000000000000803f0000803f
+    _typelessdata: 000000bf00000000fb94b3be00000000ffff7f3f000000000000000000000000000000bf00000000fb94b33e00000000ffff7f3f00000000000000000000803f0000003f00000000fb94b3be00000000ffff7f3f000000000000803f000000000000003f00000000fb94b33e00000000ffff7f3f000000000000803f0000803f
   m_CompressedMesh:
     m_Vertices:
       m_NumItems: 0
@@ -750,14 +750,14 @@ MonoBehaviour:
   m_Script: {fileID: -1631628248, guid: bab6fa851cf5a1a4bba3cec5f191cb8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mTrackableName: target-test
+  mTrackableName: chips
   mPreserveChildSize: 0
   mInitializedInEditor: 1
   mDataSetPath: Vuforia/ER-AR.xml
-  mAspectRatio: 1.002784
+  mAspectRatio: 0.701492
   mImageTargetType: 0
   mWidth: 0.25
-  mHeight: 0.250696
+  mHeight: 0.175373
 --- !u!4 &336041254
 Transform:
   m_ObjectHideFlags: 0
@@ -767,7 +767,7 @@ Transform:
   m_GameObject: {fileID: 336041248}
   m_LocalRotation: {x: -0.5, y: 0.5, z: -0.5, w: 0.5}
   m_LocalPosition: {x: -0.678, y: 0, z: 1.09}
-  m_LocalScale: {x: 0.250696, y: 0.250696, z: 0.250696}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_Children:
   - {fileID: 29606881}
   - {fileID: 5129194845410141335}
@@ -1678,12 +1678,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCanvas: {fileID: 791077807}
+  numberScreen: {fileID: 29606880}
+  numberSolution: 3000370031003800
   numberClue: {fileID: 2340899051191770274}
   puzzleSolution: Planets
   introduction:
   - Find the hidden words
   - A hidden meaning in the tarmac
-  - GET OUT!
+  - THE NUMPAD IN THE WOOD!
 --- !u!114 &905988240
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2106,7 +2108,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: d2e130ea130440c9af0f481169b456d2, type: 3}
+        m_Texture: {fileID: 2800000, guid: 91c516774d3b400dae859143fd622e94, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats: []
@@ -2469,7 +2471,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: 'target-testMaterial
+  m_Name: 'chipsMaterial
 
     -23590'
   m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
@@ -2484,7 +2486,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 3bda5e54e4c64444b2acafbcdf0cc83f, type: 3}
+        m_Texture: {fileID: 2800000, guid: de522855681341d0ac416ea83fd3d34b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats: []
@@ -3197,7 +3199,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 276b3738062f47e5a80141d4f228f6a5, type: 3}
+        m_Texture: {fileID: 2800000, guid: 952e8df9f9b14b6f923afe39d1323588, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats: []

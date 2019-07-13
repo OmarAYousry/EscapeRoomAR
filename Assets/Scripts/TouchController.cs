@@ -52,6 +52,14 @@ public class TouchController : MonoBehaviour
                         FlowController.Instance.AttemptPuzzleSolution(target.GetComponent<PuzzleBehaviour>().TargetString);
                     }
                 }
+                else if (hitInfo.collider.gameObject.CompareTag("NumKey"))
+                {
+                    target = hitInfo.collider.gameObject;
+                    if (target.GetComponent<NumKeyBehaviour>() != null)
+                    {
+                        FlowController.Instance.AttemptNumberPad(target.GetComponent<NumKeyBehaviour>().TargetNum.ToString()[0]);
+                    }
+                }
                 else if (target != null)
                 {
                     if (target.CompareTag("Clue"))
