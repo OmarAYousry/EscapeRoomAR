@@ -5,6 +5,7 @@ using UnityEngine;
 public class Observation : Singleton<Observation>
 {
     private List<string> wordList = new List<string>();
+    private bool allCluesFound = false;
 
     public List<string> getCurrentWordList()
     {
@@ -30,9 +31,10 @@ public class Observation : Singleton<Observation>
     // Update is called once per frame
     void Update()
     {
-        if (wordList.Count > 0)
+        if (wordList.Count == 3 && !allCluesFound)
         {
-            Debug.LogWarning(wordList[0]);
+            allCluesFound = true;
+            FlowController.Instance.UpdateClueText();
         }
     }
 }

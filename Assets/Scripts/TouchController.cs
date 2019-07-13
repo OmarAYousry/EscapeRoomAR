@@ -5,7 +5,7 @@ using Vuforia;
 
 public class TouchController : MonoBehaviour
 {
-    private GameObject clue;
+    private GameObject target;
     void Update()
     {
         Vector2 touchPosition = new Vector2(-1f, -1f);
@@ -38,34 +38,51 @@ public class TouchController : MonoBehaviour
                 if (hitInfo.collider.gameObject.CompareTag("Clue"))
                 {
                     hitInfo.collider.transform.GetChild(0).gameObject.SetActive(true);
-                    clue = hitInfo.collider.gameObject;
-                    if (clue.GetComponent<WordCubeBehaviour>() != null)
+                    target = hitInfo.collider.gameObject;
+                    if (target.GetComponent<ClueBehaviour>() != null)
                     {
-                        Observation.Instance.AddWordToList(clue.GetComponent<WordCubeBehaviour>().TargetString);
+                        Observation.Instance.AddWordToList(target.GetComponent<ClueBehaviour>().TargetString);
                     }
                 }
-                else if (clue != null)
+                else if (hitInfo.collider.gameObject.CompareTag("Puzzle"))
                 {
-                    clue.transform.GetChild(0).gameObject.SetActive(false);
-                    clue = null;
+                    target = hitInfo.collider.gameObject;
+                    if (target.GetComponent<PuzzleBehaviour>() != null)
+                    {
+                        FlowController.Instance.AttemptPuzzleSolution(target.GetComponent<PuzzleBehaviour>().TargetString);
+                    }
+                }
+                else if (target != null)
+                {
+                    if (target.CompareTag("Clue"))
+                    {
+                        target.transform.GetChild(0).gameObject.SetActive(false);
+                    }
+                    target = null;
                 }
             }
             else
             {
-                if (clue != null)
+                if (target != null)
                 {
-                    clue.transform.GetChild(0).gameObject.SetActive(false);
-                    clue = null;
+                    if (target.CompareTag("Clue"))
+                    {
+                        target.transform.GetChild(0).gameObject.SetActive(false);
+                    }
+                    target = null;
                 }
                 Debug.Log("No targets hit :(");
             }
         }
         else
         {
-            if (clue != null)
+            if (target != null)
             {
-                clue.transform.GetChild(0).gameObject.SetActive(false);
-                clue = null;
+                if (target.CompareTag("Clue"))
+                {
+                    target.transform.GetChild(0).gameObject.SetActive(false);
+                }
+                target = null;
             }
         }
     }

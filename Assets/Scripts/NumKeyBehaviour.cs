@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class WordCubeBehaviour : MonoBehaviour
+public class NumKeyBehaviour : MonoBehaviour
 {
     [SerializeField]
     private Text targetText;
-    public string TargetString { get; private set; }
+    public string TargetNum{ get; private set; }
     // Start is called before the first frame update
     void Awake()
     {
@@ -15,14 +15,19 @@ public class WordCubeBehaviour : MonoBehaviour
         {
             targetText = GetComponentInChildren<Text>();
         }
-        TargetString = targetText.text;
+        TargetNum = targetText.text;
 
-        transform.GetChild(0).gameObject.SetActive(false);
+        //transform.GetChild(0).gameObject.SetActive(false);
+    }
+    // Start is called before the first frame update
+    void Start()
+    {
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(TargetString);
+        
     }
 }
